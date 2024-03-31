@@ -33,3 +33,7 @@ const reactionSchema = new mongoose.Schema(
 const getTimestamp = (time) => {
   return moment(time).format("MMM Do, YYYY [at] hh:mm a");
 };
+
+const Reaction = model("Reaction", reactionSchema);
+
+module.exports = Reaction;
