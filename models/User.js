@@ -29,4 +29,6 @@ const UserSchema = new mongoose.Schema({
 // Create a new model for `User` with the `UserSchema`
 const User = mongoose.model("User", UserSchema);
 
+// User.create({ username: "test", email: "test@acme.com" });
+
 module.exports = User;
