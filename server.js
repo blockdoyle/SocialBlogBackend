@@ -1,6 +1,6 @@
 const express = require("express");
 const db = require("./config/connection");
-// const routes = require("./routes");
+const routes = require("./routes");
 
 // Create a new Express application
 const PORT = process.env.PORT || 3001;
