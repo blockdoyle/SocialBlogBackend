@@ -6,6 +6,8 @@ const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+app.use(routes);
+
 // Start the server
 db.once("open", () => {
   app.listen(PORT, () => {
