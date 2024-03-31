@@ -1,3 +1,5 @@
+const { User } = require("../models");
+
 const names = [
   "John",
   "Emma",
@@ -27,12 +29,17 @@ const names = [
   "Elizabeth",
 ];
 
-const getRandomUser = () => {
-  return names[Math.floor(Math.random() * names.length)];
+function getRandomUser() {
+  const username = names[Math.floor(Math.random() * names.length)];
+  const email = makeEmail(username.toLowerCase());
+  return { username, email };
+}
+
+const makeEmail = (username) => {
+  const domain = ["gmail", "yahoo", "outlook", "aol"];
+  return `${username}@${domain[Math.floor(Math.random() * domain.length)]}.com`;
 };
 
-const makeEmail = (name) => {
-  return `${name.toLowerCase()}@acme.com`;
-};
+console.log(getRandomUser());
 
 module.exports = { getRandomUser, makeEmail };
