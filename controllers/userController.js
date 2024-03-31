@@ -1,5 +1,5 @@
-const { ObjectId } = require("mongodb").Types;
-const { User, Thought, Reaction } = require("../models");
+// const { ObjectId } = require("mongodb");
+const { User } = require("../models");
 
 module.exports = {
   // Get all users
