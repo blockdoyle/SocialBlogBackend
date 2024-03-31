@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// Create a new schema for a `User` with the following fields:
+// Schema design for the User model
 const UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true, trimmed: true },
   email: { type: String, required: true, unique: true },
