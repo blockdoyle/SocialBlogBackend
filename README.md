@@ -25,8 +25,6 @@
   
   ## Contributing
   Contributions are welcome. Please create a pull request or an issue and let's talk.
-  ## Tests
-  ``````
   ## Questions
   If you have any questions, please contact me at blockdoyle@gmail.com.
   ### GitHub Profile
