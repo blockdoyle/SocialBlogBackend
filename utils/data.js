@@ -42,4 +42,4 @@ const makeEmail = (username) => {
 
 console.log(getRandomUser());
 
-module.exports = { getRandomUser, makeEmail };
+module.exports = { getRandomUser };
