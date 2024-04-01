@@ -5,13 +5,13 @@ const {
   createUser,
 } = require("../../controllers/userController");
 
-// Set up GET all and POST at /api/users
+// GET all users at /api/users
 router.route("/").get(getUsers);
 
-// Set up GET one at /api/users/:id
+// GET a single user by its _id at /api/users/:userId
 router.route("/:userId").get(getSingleUser);
 
-// Create a user with a POST request at /api/users
+// POST request to create a new user at /api/users
 router.route("/").post(createUser);
 
 module.exports = router;
