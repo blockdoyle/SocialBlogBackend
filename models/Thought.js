@@ -1,6 +1,34 @@
 const mongoose = require("mongoose");
 const moment = require("moment");
 
+// Schema design for the reaction subdocument
+const reactionSchema = new mongoose.Schema(
+  {
+    reactionId: {
+      type: mongoose.Schema.Types.ObjectId,
+      default: () => new mongoose.Types.ObjectId(),
+    },
+    reactionBody: {
+      type: String,
+      required: true,
+      maxlength: 280,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+  },
+  {
+    toJSON: {
+      getters: true,
+    },
+  }
+);
+
 // Schema design for the Thought model
 const thoughtSchema = new mongoose.Schema(
   {
@@ -38,6 +66,7 @@ thoughtSchema.virtual("formattedCreatedAt").get(function () {
   return moment(this.createdAt).format("MMM Do, YYYY [at] hh:mm a");
 });
 
+// Create the Thought model using the thoughtSchema
 const Thought = mongoose.model("Thought", thoughtSchema);
 
 module.exports = Thought;

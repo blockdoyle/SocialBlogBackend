@@ -90,4 +90,48 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+
+  // POST to create a reaction stored in a single thought's reactions array field
+  async createReaction(req, res) {
+    try {
+      const updatedThought = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $push: { reactions: req.body } },
+        { new: true }
+      );
+
+      if (!updatedThought) {
+        return res
+          .status(404)
+          .json({ message: "No thought found with this id!" });
+      }
+
+      res.json(updatedThought);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  },
+
+  // DELETE function to remove a reaction by the reaction's reactionId value
+  async deleteReaction(req, res) {
+    try {
+      const updatedThought = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
+        { new: true }
+      );
+
+      if (!updatedThought) {
+        return res
+          .status(404)
+          .json({ message: "No thought found with this id!" });
+      }
+
+      res.json(updatedThought);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  },
 };
